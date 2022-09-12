@@ -2,6 +2,7 @@ import { Component, OnInit,} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ObservorService } from '../observor.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,28 +11,29 @@ import { ObservorService } from '../observor.service';
   styleUrls: ['./textbox.component.css'],
 })
 export class TextboxComponent implements OnInit {
-
+  Username: any;
   
+
   constructor(private UsernameService: ObservorService) { 
     
   }
 
-  public Username:string | undefined;
+    
   
   
   private debounce: number = 400;
   public searchControl: FormControl = new FormControl('');
 
   ngOnInit() {
-    this.searchControl.valueChanges
+    this.UsernameService.changeUsername('User');
+     this.searchControl.valueChanges
       .pipe(debounceTime(this.debounce), distinctUntilChanged())
       .subscribe(query => {
        console.log(query)
-       
+       this.UsernameService.changeUsername(query);
        
       });
-      this.Username=this.UsernameService.Username;
-    
       
+    
   }
 }

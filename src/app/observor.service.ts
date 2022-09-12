@@ -1,18 +1,27 @@
 import { Injectable } from '@angular/core';
-import { TextboxComponent } from './textbox/textbox.component';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObservorService {
+
+  
  
+  private subject = new Subject<any>();
   
 
-  constructor() { 
-   
+  changeUsername(Username: string){
+    this.subject.next({text: Username})
   }
 
-  public Username = 'Selim';
+  getUsername(): Observable<any> {
+    return this.subject.asObservable();
+  }
+
+ 
+  
 }
 
