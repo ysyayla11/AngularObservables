@@ -18,12 +18,13 @@ import { TextboxComponent } from './textbox/textbox.component';
   declarations: [
     AppComponent,
    HeaderComponent,
-   TextboxComponent
+   TextboxComponent,
+   
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, 
     
   ],
   providers: [],

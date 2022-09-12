@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservorService } from '../observor.service';
+import { TextboxComponent } from '../textbox/textbox.component';
 
 @Component({
   selector: 'app-header',
