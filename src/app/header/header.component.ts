@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   
 
   ngOnInit(): void {
-   // this.Username = this.UsernameService.Username;
+   
     
   }
 
