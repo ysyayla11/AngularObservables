@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservorService } from '../observor.service';
-import { TextboxComponent } from '../textbox/textbox.component';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-header',
@@ -9,12 +8,13 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   subscription: Subscription;
-  Username: any;
+  Username: any; //define username
 
+   //Construct the service
   constructor(private UsernameService: ObservorService) { 
     this.subscription = this.UsernameService.getUsername().
-    subscribe(Username => {this.Username = Username})
-    
+    subscribe(UpdateUserName=> {this.Username = UpdateUserName})
+    //subscribe to the getUsername method, this will let the header know that the username is. 
   }
 
 
