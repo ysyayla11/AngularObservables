@@ -39,6 +39,6 @@ export class ObservorService {
   }
 
  //how does this work all the time? the website is using memory continuosly. Even though I am not typing. 
-  
+ 
 }
 

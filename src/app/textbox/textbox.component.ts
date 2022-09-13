@@ -35,6 +35,7 @@ export class TextboxComponent implements OnInit {
          }
          else {
        this.UsernameService.changeUsername(query);
+       
       }
 
       // Change the username to the typed value, when the value is empty make it 'User'
