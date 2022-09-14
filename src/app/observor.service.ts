@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 // Observables can "return" multiple values over time, 
 // something which functions cannot.
@@ -24,21 +24,8 @@ import { Observable, Subject } from 'rxjs';
   //root' : The application-level injector in most apps.
 })
 export class ObservorService {
-
+  public observable = new BehaviorSubject<string>("User");
   
- 
-  private subject = new Subject<any>();
-  
-
-  changeUsername(Username: string){
-    this.subject.next({text: Username})
-  } //default user name is unidentified here
-
-  getUsername(): Observable<any> {
-    return this.subject.asObservable();
-  }
-
- //how does this work all the time? the website is using memory continuosly. Even though I am not typing. 
  
 }
 

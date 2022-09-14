@@ -6,24 +6,14 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  subscription: Subscription;
+export class HeaderComponent  {
+  subscriptions: Subscription[] = [];
+  
   Username: any; //define username
 
    //Construct the service
   constructor(private UsernameService: ObservorService) { 
-    this.subscription = this.UsernameService.getUsername().
-    subscribe(UpdateUserName=> {this.Username = UpdateUserName})
-    //subscribe to the getUsername method, this will let the header know that the username is. 
+    this.subscriptions.push(this.UsernameService.observable.subscribe(verdi => this.Username = verdi)); 
   }
-
-
-  
-
-  ngOnInit(): void {
-   
-    
-  }
-
 }
 
